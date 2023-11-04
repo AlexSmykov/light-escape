@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
+
+[RequireComponent(typeof(Collider2D))]
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	public int PlayerDamage = 1;
+	[HideInInspector] public bool isRunning = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
+
