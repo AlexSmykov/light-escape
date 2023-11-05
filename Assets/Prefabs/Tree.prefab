@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1142168587408781640}
   - component: {fileID: 2197532172926977261}
+  - component: {fileID: 5212008136148472450}
   - component: {fileID: 302941737496454232}
-  - component: {fileID: 6637058070029999908}
   - component: {fileID: 5713452197365350485}
   m_Layer: 0
   m_Name: Tree
@@ -87,6 +87,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5212008136148472450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5093802623700291106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 846a3a032c5fe6649886cd9fb78acc80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objName: Tree
+  hp: 3
+  type: 1
+  count: 2
 --- !u!61 &302941737496454232
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -132,21 +148,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4, y: 0.4}
   m_EdgeRadius: 0.3
---- !u!114 &6637058070029999908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5093802623700291106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15b9db8a31d4e704095bc41c4ef946b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objName: 
-  type: 0
-  hp: 3
 --- !u!50 &5713452197365350485
 Rigidbody2D:
   serializedVersion: 4

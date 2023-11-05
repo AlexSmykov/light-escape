@@ -1,21 +1,21 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
 
 [RequireComponent(typeof(PlayerController))]
+[RequireComponent(typeof(PlayerResourcesController))]
 public class PlayerActionController : MonoBehaviour
 {
 	public GameObject ETapBanner;
 	private List<GameObject> _currentCollisions = new List<GameObject>();
 
-
 	private PlayerController player;
+	private PlayerResourcesController playerResources;
 
-    private void Start()
+	private void Start()
     {
 		player = GetComponent<PlayerController>();
-
+		playerResources = GetComponent<PlayerResourcesController>();
 	}
 
 
@@ -23,8 +23,6 @@ public class PlayerActionController : MonoBehaviour
 	{
 		_currentCollisions.Add(col.gameObject);
 		checkActiveCollisions();
-
-
 	}
 
 	void OnTriggerExit2D(Collider2D col)
@@ -40,10 +38,12 @@ public class PlayerActionController : MonoBehaviour
 			var objs = GetResourceObjectList();
 			if (objs.Count > 0)
 			{
-				var isDestroyed = objs[0].GetComponent<AbstractMapObject>().OnDamage(player.PlayerDamage);
+				var resObj = objs[0].GetComponent<ResourceObject>();
+				var isDestroyed = resObj.OnDamage(player.PlayerDamage);
 				if (isDestroyed)
 				{
-					// Здесь предположительно нашему персу будут засчитываться ресурсы уничтоженного объекта (у него есть тип ресурса)
+					playerResources.AddResource(resObj.type, resObj.count);
+
 					// Также можно будет навешать всплывающий текст о добытых ресурсах.
 				}
 

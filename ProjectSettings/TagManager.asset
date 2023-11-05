@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Resource
+  - Scripts
   layers:
   - Default
   - TransparentFX

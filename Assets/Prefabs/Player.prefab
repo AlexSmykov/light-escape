@@ -100,9 +100,10 @@ GameObject:
   - component: {fileID: 5037021207414750333}
   - component: {fileID: 5209204835520344369}
   - component: {fileID: 5390456986973162123}
+  - component: {fileID: 3917334688820539302}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,9 +117,9 @@ Transform:
   m_GameObject: {fileID: 7159918687066457015}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.14828426, y: -1.5042452, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8305825985553152410}
   m_Father: {fileID: 0}
@@ -324,3 +325,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ETapBanner: {fileID: 4230320502357474922}
+--- !u!114 &3917334688820539302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7159918687066457015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f382d64a89748b945bf62868a9208e7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventoryMenu: {fileID: 0}
+  playerResources:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  sword: {fileID: 6650624312286725741, guid: 06db7620faec67745908a5a956386ed1, type: 3}
+  axe: {fileID: 6650624312286725741, guid: 65d027847723e90428e46bcacf381be1, type: 3}
+  pickaxe: {fileID: 6650624312286725741, guid: 4b83846e0a24d134c8aa71d95c29e4f7, type: 3}
+  helmet: {fileID: 0}
+  chestplate: {fileID: 0}
+  leggings: {fileID: 0}
+  boots: {fileID: 0}
+  boat: {fileID: 0}
+  swordImage: {fileID: 0}
+  axeImage: {fileID: 0}
+  pickaxeImage: {fileID: 0}
+  helmetImage: {fileID: 0}
+  chestplateImage: {fileID: 0}
+  leggingsImage: {fileID: 0}
+  bootsImage: {fileID: 0}
+  boatImage: {fileID: 0}
+  amuletes: []
+  amuletesTransform: {fileID: 0}
