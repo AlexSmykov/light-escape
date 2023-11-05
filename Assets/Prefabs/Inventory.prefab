@@ -2121,7 +2121,7 @@ GameObject:
   - component: {fileID: 2069184839898689874}
   - component: {fileID: 9039815568224771023}
   m_Layer: 0
-  m_Name: amuletes
+  m_Name: amuletesTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
