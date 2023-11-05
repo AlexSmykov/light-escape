@@ -26,6 +26,7 @@ public class CraftRecipe : MonoBehaviour
     public ItemType type;
 
     private PlayerResourcesController playerResources;
+    private bool isCraftAvailable = false;
 
     private void Start()
     {
@@ -39,36 +40,41 @@ public class CraftRecipe : MonoBehaviour
         if (playerResources.CanCraft(cost))
         {
             craftButtonSprite.color = ActiveColor;
+            isCraftAvailable = true;
         }
         else
         {
             craftButtonSprite.color = DeactiveColor;
+            isCraftAvailable = false;
         }
     }
 
     public void OnCraftButtonClick()
     {
-        switch (type)
+        if (isCraftAvailable)
         {
-            case ItemType.Tool:
-                playerResources.CraftTool(cost,resultTool);
-                break;
+            switch (type)
+            {
+                case ItemType.Tool:
+                    playerResources.CraftTool(cost, resultTool);
+                    break;
 
-            case ItemType.UpgradableTool:
-                playerResources.CraftUpgradable(cost, resultUpgradableTool);
-                break;
+                case ItemType.UpgradableTool:
+                    playerResources.CraftUpgradable(cost, resultUpgradableTool);
+                    break;
 
-            case ItemType.Amulete:
-                playerResources.CraftAmulete(cost, resultAmulete);
-                break;
+                case ItemType.Amulete:
+                    playerResources.CraftAmulete(cost, resultAmulete);
+                    break;
 
-            default:
-                return;
-        }
+                default:
+                    return;
+            }
 
-        if (isOneTimeCraft)
-        {
-            gameObject.SetActive(false);
+            if (isOneTimeCraft)
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 }
