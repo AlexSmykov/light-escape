@@ -33,6 +33,7 @@ public class CraftRecipe : MonoBehaviour
         playerResources = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerResourcesController>();
         playerResources.ResourceChanged += UpdateCraftButton; // ѕрив€зка на событие изменени€ ресурсов
         descriptionText.text = Description;
+        UpdateCraftButton();
     }
 
     public void UpdateCraftButton()
