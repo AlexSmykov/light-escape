@@ -42,10 +42,10 @@ public class PlayerActionController : MonoBehaviour
 			if (objs.Count > 0)
 			{
 				var resObj = objs[0].GetComponent<ResourceObject>();
-				var isDestroyed = resObj.OnDamage(player.PlayerDamage);
+				var isDestroyed = resObj.OnDamage(player.GetDamage(currentTool));
 				if (isDestroyed)
 				{
-					playerResources.AddResource(resObj.type, resObj.count);
+					playerResources.AddResource(resObj.type, Mathf.RoundToInt( resObj.count * player.loot));
 
 					// Также можно будет навешать всплывающий текст о добытых ресурсах.
 				}

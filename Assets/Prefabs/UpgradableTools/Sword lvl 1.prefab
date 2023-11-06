@@ -47,4 +47,5 @@ MonoBehaviour:
   effect: 1
   level: 1
   sprite: {fileID: 0}
-  type: 5
+  type: 4
+  image: {fileID: 0}

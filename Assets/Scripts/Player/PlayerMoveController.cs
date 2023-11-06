@@ -46,7 +46,7 @@ public class PlayerMoveController : MonoBehaviour
         var inputMove = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         _inputMoveNormalized = inputMove.normalized;
         var velocity = _playerRigidbody2D.velocity;
-        var inputMoveResult = inputMove * speed - velocity * 2f;
+        var inputMoveResult = inputMove * speed * _player.playerSpeedMove - velocity * 2f;
 
 
         if (inputMove.x != 0 || inputMove.y != 0)

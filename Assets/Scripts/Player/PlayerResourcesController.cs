@@ -9,6 +9,7 @@ public class AbstractPlayerObject : MonoBehaviour { }
 
 public delegate void Notify();
 
+[RequireComponent(typeof(Collider2D))]
 public class PlayerResourcesController : MonoBehaviour
 {
     public GameObject InventoryMenu;
@@ -42,6 +43,13 @@ public class PlayerResourcesController : MonoBehaviour
 
     public event Notify ResourceChanged;
 
+    private PlayerController player;
+
+
+    private void Start()
+    {
+        player = GetComponent<PlayerController>();
+    }
 
     private void Update()
     {
@@ -125,7 +133,9 @@ public class PlayerResourcesController : MonoBehaviour
         amuleteObj.transform.SetParent(amuletesTransform);
         amuleteObj.transform.localScale = new Vector3(1, 1, 1);
         amuleteObj.gameObject.AddComponent<Image>();
-        amuleteObj.GetComponent<PlayerAmulete>().UpdateSprite(); 
+        amuleteObj.GetComponent<PlayerAmulete>().UpdateSprite();
+
+        UpdateAmuleteStats();
     }
 
     public void AddResource(Resources type, int count)
@@ -147,6 +157,26 @@ public class PlayerResourcesController : MonoBehaviour
         }
 
         return true;
+    }
+
+    private void UpdateAmuleteStats()
+    {
+        player.swordDamage = 1;
+        player.axeDamage = 1;
+        player.pickaxeDamage = 1;
+        player.loot = 1;
+        player.playerSpeedMove = 1;
+        player.darknessSpeed = 1;
+
+        foreach (PlayerAmulete amulete in amuletes)
+        {
+            player.swordDamage *= amulete.swordDamage;
+            player.axeDamage *= amulete.axeDamage;
+            player.pickaxeDamage *= amulete.pickaxeDamage;
+            player.loot *= amulete.loot;
+            player.playerSpeedMove *= amulete.playerSpeedMove;
+            player.darknessSpeed *= amulete.darknessSpeed;
+        }
     }
 
     private void SpendResources(List<PlayerResource> resources)

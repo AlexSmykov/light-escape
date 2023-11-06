@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46faefad52b056743b80aaa4562fe9ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effect: 1
+  effect: 2
   level: 1
   sprite: {fileID: 0}
-  type: 4
+  type: 8
+  image: {fileID: 0}
