@@ -120,6 +120,10 @@ public class PlayerResourcesController : MonoBehaviour
                 return;
         }
 
+        Debug.Log(axe.level);
+        Debug.Log(sword.level);
+        Debug.Log(pickaxe.level);
+
         SpendResources(resources);
     }
 
