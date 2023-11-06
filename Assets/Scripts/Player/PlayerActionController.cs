@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(PlayerController))]
 [RequireComponent(typeof(PlayerResourcesController))]
@@ -33,6 +34,10 @@ public class PlayerActionController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
 	{
 		_currentCollisions.Add(col.gameObject);
+		if (col.tag == "Dark")
+        {
+			SceneManager.LoadScene("MenuScene");
+        }
 		checkActiveCollisions();
 	}
 
@@ -102,7 +107,9 @@ public class PlayerActionController : MonoBehaviour
 
 	List<GameObject> GetResourceObjectList()
 	{
-		return _currentCollisions.Where((item) => { return item.tag == "Resource" && item.GetComponent<ResourceObject>().NeededUpgradableTool == currentTool; }).ToList();
+		return _currentCollisions.Where((item) => { return item.tag == "Resource" && 
+			(item.GetComponent<ResourceObject>().NeededUpgradableTool == currentTool || 
+			item.GetComponent<ResourceObject>().NeededUpgradableTool == UpgradableTools.None); }).ToList();
 	}
 
 	void checkActiveCollisions()
