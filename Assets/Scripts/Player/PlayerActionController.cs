@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(PlayerController))]
 [RequireComponent(typeof(PlayerResourcesController))]
@@ -13,6 +14,10 @@ public class PlayerActionController : MonoBehaviour
 	private PlayerController player;
 	private PlayerResourcesController playerResources;
 	private FloatingTextManager ftManager;
+
+	public Image swordIconImage;
+	public Image axeIconImage;
+	public Image pickaxeIconImage;
 
 	private UpgradableTools currentTool = UpgradableTools.Sword;
 
@@ -58,6 +63,11 @@ public class PlayerActionController : MonoBehaviour
 		{
 			currentTool = UpgradableTools.Sword;
 			checkActiveCollisions();
+
+			swordIconImage.color = Color.yellow;
+			axeIconImage.color = Color.white;
+			pickaxeIconImage.color = Color.white;
+
 			Debug.Log(currentTool);
 		}
 
@@ -65,6 +75,11 @@ public class PlayerActionController : MonoBehaviour
 		{
 			currentTool = UpgradableTools.Axe;
 			checkActiveCollisions();
+
+			swordIconImage.color = Color.white;
+			axeIconImage.color = Color.yellow;
+			pickaxeIconImage.color = Color.white;
+
 			Debug.Log(currentTool);
 		}
 
@@ -72,6 +87,11 @@ public class PlayerActionController : MonoBehaviour
 		{
 			currentTool = UpgradableTools.Pickaxe;
 			checkActiveCollisions();
+
+			swordIconImage.color = Color.white;
+			axeIconImage.color = Color.white;
+			pickaxeIconImage.color = Color.yellow;
+
 			Debug.Log(currentTool);
 		}
 	}

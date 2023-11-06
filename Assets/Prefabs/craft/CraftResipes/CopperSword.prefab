@@ -880,7 +880,7 @@ MonoBehaviour:
   resultTool: {fileID: 0}
   resultUpgradableTool: {fileID: 6650624312286725741, guid: 4b83846e0a24d134c8aa71d95c29e4f7, type: 3}
   resultAmulete: {fileID: 0}
-  ResultIcon: {fileID: 21300000, guid: 6680b9c82d17f1947b705f02e37830cb, type: 3}
+  ResultIcon: {fileID: 21300000, guid: 4382897e9a5954c408e0e0ab6b24468b, type: 3}
   Name: "\u041C\u0435\u0434\u043D\u044B\u0439 \u043C\u0435\u0447"
   Description: "\u041F\u043E\u0447\u0442\u0438 \u043D\u0435 \u0437\u0430\u0440\u0436\u0430\u0432\u0435\u0432\u0448\u0438\u0439"
   ResultImage: {fileID: 6960817851523153168}
@@ -1415,7 +1415,7 @@ PrefabInstance:
     - target: {fileID: 4945966942126360004, guid: eb7065359bb12da4db95922eaebf0358, type: 3}
       propertyPath: sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4b6ca3b64b7587843b73a082145d44b0, type: 3}
+      objectReference: {fileID: 21300000, guid: 4dc6e7588f8e3b648a360d256dca6b90, type: 3}
     - target: {fileID: 7161601189480903497, guid: eb7065359bb12da4db95922eaebf0358, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

@@ -46,6 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effect: 1
   level: 2
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f15f0cb06aca8104bbf8e1d2cc1f098a, type: 3}
   type: 1
   image: {fileID: 0}

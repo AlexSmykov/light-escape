@@ -37,6 +37,7 @@ public class PlayerMoveController : MonoBehaviour
     {
         _canMove = true;
         playerTransform = transform;
+        _animator = GetComponent<Animator>();
         _playerRigidbody2D = GetComponent<Rigidbody2D>();
         _currentDashCooldown = dashCooldown;
         _player = GetComponent<PlayerController>();
@@ -55,18 +56,20 @@ public class PlayerMoveController : MonoBehaviour
             bootsSpeed =  (float)_playerResources.boots.effect / 100;
         }
 
-        var inputMoveResult = inputMove * speed * _player.playerTerrainSpeed * (_player.playerSpeedMove + bootsSpeed) - velocity * 1.5f;
-
-
+        var mults = _player.playerTerrainSpeed * (_player.playerSpeedMove + bootsSpeed);
+        var inputMoveResult = inputMove * speed * mults - velocity * 2 * (_player.playerSpeedMove + bootsSpeed);
 
         if (inputMove.x != 0 || inputMove.y != 0)
         {
             _player.isRunning = true;
+            _animator.SetBool("isRunning", true);
+            _animator.Play("playerRun");
+
             if (inputMove.x > 0)
             {
                 transform.localScale = new Vector3(1, 1, 1);
             }
-            else
+            else if (inputMove.x < 0)
             {
                 transform.localScale = new Vector3(-1, 1, 1);
             }
@@ -74,6 +77,7 @@ public class PlayerMoveController : MonoBehaviour
         else
         {
             _player.isRunning = false;
+            _animator.SetBool("isRunning", false);
         }
         
         _playerRigidbody2D.AddForce(inputMoveResult, ForceMode2D.Force);
