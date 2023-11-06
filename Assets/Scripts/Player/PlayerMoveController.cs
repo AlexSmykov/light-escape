@@ -55,12 +55,21 @@ public class PlayerMoveController : MonoBehaviour
             bootsSpeed =  (float)_playerResources.boots.effect / 100;
         }
 
-        var inputMoveResult = inputMove * speed * _player.playerTerrainSpeed * (_player.playerSpeedMove + bootsSpeed) - velocity * 2f;
+        var inputMoveResult = inputMove * speed * _player.playerTerrainSpeed * (_player.playerSpeedMove + bootsSpeed) - velocity * 1.5f;
+
 
 
         if (inputMove.x != 0 || inputMove.y != 0)
         {
             _player.isRunning = true;
+            if (inputMove.x > 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+            else
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
         }
         else
         {
