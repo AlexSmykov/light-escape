@@ -8,9 +8,12 @@ public class PlayerActionController : MonoBehaviour
 {
 	public GameObject ETapBanner;
 	private List<GameObject> _currentCollisions = new List<GameObject>();
+	private List<Tools> acquiredTools = new List<Tools>();
 
 	private PlayerController player;
 	private PlayerResourcesController playerResources;
+
+	private UpgradableTools currentTool = UpgradableTools.Sword;
 
 	private void Start()
     {
@@ -33,7 +36,7 @@ public class PlayerActionController : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.E) && ETapBanner.activeSelf)
+		if (Input.GetKeyDown(KeyCode.Mouse0) && ETapBanner.activeSelf)
 		{
 			var objs = GetResourceObjectList();
 			if (objs.Count > 0)
@@ -49,6 +52,27 @@ public class PlayerActionController : MonoBehaviour
 
 			}
 		}
+
+		if (Input.GetKeyDown("1"))
+		{
+			currentTool = UpgradableTools.Sword;
+			checkActiveCollisions();
+			Debug.Log(currentTool);
+		}
+
+		else if (Input.GetKeyDown("2"))
+		{
+			currentTool = UpgradableTools.Axe;
+			checkActiveCollisions();
+			Debug.Log(currentTool);
+		}
+
+		else if (Input.GetKeyDown("3"))
+		{
+			currentTool = UpgradableTools.Pickaxe;
+			checkActiveCollisions();
+			Debug.Log(currentTool);
+		}
 	}
 
 	List<GameObject> GetResourceObjectList()
@@ -58,23 +82,30 @@ public class PlayerActionController : MonoBehaviour
 
 	void checkActiveCollisions()
 	{
-		if (IsCollisionsHasTag(_currentCollisions, "Resource"))
+		ETapBanner.SetActive(false);
+
+		var resoursableCollisions = GetResoursableCollisions(_currentCollisions, "Resource");
+		if (resoursableCollisions.Count > 0)
 		{
-			ETapBanner.SetActive(true);
-		}
-		else
-		{
-			ETapBanner.SetActive(false);
+			if (resoursableCollisions.Where((item) => {
+				Debug.Log(item.GetComponent<ResourceObject>().NeededUpgradableTool == currentTool);
+				Debug.Log(acquiredTools.Contains(item.GetComponent<ResourceObject>().NeededTool));
+				Debug.Log(item.GetComponent<ResourceObject>().NeededUpgradableTool == UpgradableTools.None);
+				Debug.Log(item.GetComponent<ResourceObject>().NeededTool == Tools.None);
+
+				return (item.GetComponent<ResourceObject>().NeededUpgradableTool == currentTool) ||
+					acquiredTools.Contains(item.GetComponent<ResourceObject>().NeededTool) ||
+					(item.GetComponent<ResourceObject>().NeededUpgradableTool == UpgradableTools.None) &&
+					(item.GetComponent<ResourceObject>().NeededTool == Tools.None);
+				}).ToList().Count > 0)
+			{
+				ETapBanner.SetActive(true);
+			}
 		}
 	}
 
-	bool IsCollisionsHasTag(IEnumerable<GameObject> myCollisions, string tag)
+	private List<GameObject> GetResoursableCollisions(List<GameObject> myCollisions, string tag)
 	{
-		foreach (var collision in myCollisions)
-		{
-			if (collision.tag == tag) return true;
-		}
-
-		return false;
+		return myCollisions.Where((item) => { return item.tag == tag; }).ToList();
 	}
 }

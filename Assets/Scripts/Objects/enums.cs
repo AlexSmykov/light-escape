@@ -11,6 +11,7 @@ public enum Resources : int
 
 public enum UpgradableTools : int
 {
+    None = 0,
     Pickaxe = 1,
     Axe = 2,
     Sword = 4,
@@ -22,6 +23,7 @@ public enum UpgradableTools : int
 
 public enum Tools : int
 {
+    None = 0,
     Boat = 1,
 }
 

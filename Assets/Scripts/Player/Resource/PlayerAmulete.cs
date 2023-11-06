@@ -7,15 +7,16 @@ public class PlayerAmulete : MonoBehaviour
 {
     public Sprite sprite;
 
-    public Image image;
+    private Image image;
 
     public PlayerAmulete(Sprite sprite)
     {
         this.sprite = sprite;
     }
 
-    private void Start()
+    public void UpdateSprite()
     {
+        image = GetComponent<Image>();
         image.sprite = sprite;
     }
 }

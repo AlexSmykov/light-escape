@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class ResourceObject : AbstractMapObject
 {
+    public UpgradableTools NeededUpgradableTool;
+    public Tools NeededTool;
+
     public Resources type;
     public int count;
     private Animator animator;
