@@ -100,9 +100,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objName: "\u0414\u0435\u0440\u0435\u0432\u043E"
-  hp: 14
+  NeededUpgradableTool: 2
+  NeededTool: 0
   type: 1
-  count: 6
+  count: 9
+  hp: 25
 --- !u!95 &-5033409257126209479
 Animator:
   serializedVersion: 5

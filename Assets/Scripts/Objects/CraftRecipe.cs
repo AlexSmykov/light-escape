@@ -15,9 +15,14 @@ public class CraftRecipe : MonoBehaviour
     public PlayerTool resultTool;
     public PlayerUpgradableTool resultUpgradableTool;
     public PlayerAmulete resultAmulete;
+    public Sprite ResultIcon;
+
+    public string Name;
     public string Description;
+    public Image ResultImage;
 
     public Image craftButtonSprite;
+    public TextMeshProUGUI nameText;
     public TextMeshProUGUI descriptionText;
 
     public Color ActiveColor;
@@ -28,12 +33,15 @@ public class CraftRecipe : MonoBehaviour
     private PlayerResourcesController playerResources;
     private bool isCraftAvailable = false;
 
-    private void Start()
+    private void Awake()
     {
         playerResources = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerResourcesController>();
         playerResources.ResourceChanged += UpdateCraftButton; // ѕрив€зка на событие изменени€ ресурсов
-        descriptionText.text = Description;
         UpdateCraftButton();
+
+        nameText.text = Name;
+        descriptionText.text = Description;
+        ResultImage.sprite = ResultIcon;
     }
 
     public void UpdateCraftButton()

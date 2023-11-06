@@ -2,6 +2,7 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(PlayerController))]
+[RequireComponent(typeof(PlayerResourcesController))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMoveController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerMoveController : MonoBehaviour
     
     private Vector2 _inputMoveNormalized;
     private PlayerController _player;
+    private PlayerResourcesController _playerResources;
     private Animator _animator;
     private float _currentDashCooldown;
     private Rigidbody2D _playerRigidbody2D;
@@ -38,6 +40,7 @@ public class PlayerMoveController : MonoBehaviour
         _playerRigidbody2D = GetComponent<Rigidbody2D>();
         _currentDashCooldown = dashCooldown;
         _player = GetComponent<PlayerController>();
+        _playerResources = GetComponent<PlayerResourcesController>();
     }
 
     private void Update()
@@ -46,7 +49,7 @@ public class PlayerMoveController : MonoBehaviour
         var inputMove = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         _inputMoveNormalized = inputMove.normalized;
         var velocity = _playerRigidbody2D.velocity;
-        var inputMoveResult = inputMove * speed - velocity * 2f;
+        var inputMoveResult = inputMove * speed * _player.playerSpeedMove * (1 + (float)_playerResources.boots.effect / 100) - velocity * 2f;
 
 
         if (inputMove.x != 0 || inputMove.y != 0)
