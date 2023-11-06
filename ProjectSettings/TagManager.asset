@@ -4,7 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Hint
+  - Resource
+  - Scripts
   layers:
   - Default
   - TransparentFX
@@ -41,4 +42,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Agent
+    uniqueID: 2207533539
+    locked: 0
+  - name: New Layer 2
+    uniqueID: 1454899399
     locked: 0
