@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public PlayerController player;
     public float speed;
     public float detectionDistance, damageInterval;
     private bool playerDetected = false;
     public float damage;
     private bool contacted = false;
     private float lastDamagedAt = -100.0f;
-    // Start is called before the first frame update
+
+    private PlayerController player;
+
     void Start()
     {
-        
+        player = FindObjectOfType<PlayerController>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

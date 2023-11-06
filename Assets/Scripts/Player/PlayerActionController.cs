@@ -49,13 +49,16 @@ public class PlayerActionController : MonoBehaviour
 			var objs = GetResourceObjectList();
 			if (objs.Count > 0)
 			{
-				var resObj = objs[0].GetComponent<ResourceObject>();
-				var isDestroyed = resObj.OnDamage(player.GetDamage(currentTool));
-				if (isDestroyed)
+				foreach (var obj in objs)
 				{
-					var reward = Mathf.RoundToInt(resObj.count * player.loot);
-					ftManager.Spawn(transform.position, "Получено: " + reward);
-					playerResources.AddResource(resObj.type, reward);
+					var resObj = obj.GetComponent<ResourceObject>();
+					var isDestroyed = resObj.OnDamage(player.GetDamage(currentTool));
+					if (isDestroyed && resObj.type != Resources.Enemy)
+					{
+						var reward = Mathf.RoundToInt(resObj.count * player.loot);
+						ftManager.Spawn(transform.position, "Получено: " + reward);
+						playerResources.AddResource(resObj.type, reward);
+					}
 				}
 			}
 		}
@@ -99,7 +102,7 @@ public class PlayerActionController : MonoBehaviour
 
 	List<GameObject> GetResourceObjectList()
 	{
-		return _currentCollisions.Where((item) => { return item.tag == "Resource"; }).ToList();
+		return _currentCollisions.Where((item) => { return item.tag == "Resource" && item.GetComponent<ResourceObject>().NeededUpgradableTool == currentTool; }).ToList();
 	}
 
 	void checkActiveCollisions()

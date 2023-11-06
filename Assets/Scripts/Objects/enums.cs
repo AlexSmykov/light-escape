@@ -7,6 +7,7 @@ public enum Resources : int
     Gold = 5,
     Platinum = 6,
     Crystal = 0, // то что надо собрать для цели игры
+    Enemy = 7, 
 }
 
 public enum UpgradableTools : int

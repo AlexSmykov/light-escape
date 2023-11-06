@@ -31,6 +31,7 @@ public class PlayerResourcesController : MonoBehaviour
     public Image axeImage;
     public Image pickaxeImage;
 
+
     public Image helmetImage;
     public Image chestplateImage;
     public Image leggingsImage;
