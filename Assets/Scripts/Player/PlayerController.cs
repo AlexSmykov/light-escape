@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        playerHpCurrent = Mathf.Min(playerHpStart, playerHpCurrent += 0.001f);
+        playerHpCurrent = Mathf.Min(playerHpStart, playerHpCurrent += 0.005f);
         hpbar.fillAmount = playerHpCurrent / playerHpStart;
     }
 

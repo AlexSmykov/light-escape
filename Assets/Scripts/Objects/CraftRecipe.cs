@@ -42,6 +42,7 @@ public class CraftRecipe : MonoBehaviour
         nameText.text = Name;
         descriptionText.text = Description;
         ResultImage.sprite = ResultIcon;
+
     }
 
     public void UpdateCraftButton()
