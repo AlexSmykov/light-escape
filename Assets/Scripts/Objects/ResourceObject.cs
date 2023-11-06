@@ -27,7 +27,6 @@ public class ResourceObject : AbstractMapObject
     {
         hp -= damage;
 
-        ftManager.Spawn(transform.position, "-" + damage);
 
         if (hp <= 0)
         {
@@ -35,6 +34,7 @@ public class ResourceObject : AbstractMapObject
             return true;
         }
         animator.Play("objectDamaged", -1, 0f);
+        ftManager.Spawn(transform.position, "-" + damage);
 
         return false;
     }

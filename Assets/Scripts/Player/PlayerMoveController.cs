@@ -49,7 +49,13 @@ public class PlayerMoveController : MonoBehaviour
         var inputMove = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         _inputMoveNormalized = inputMove.normalized;
         var velocity = _playerRigidbody2D.velocity;
-        var inputMoveResult = inputMove * speed * _player.playerSpeedMove * (1 + (float)_playerResources.boots.effect / 100) - velocity * 2f;
+        var bootsSpeed = 0f;
+        if (_playerResources.boots)
+        {
+            bootsSpeed =  (float)_playerResources.boots.effect / 100;
+        }
+
+        var inputMoveResult = inputMove * speed * _player.playerTerrainSpeed * (_player.playerSpeedMove + bootsSpeed) - velocity * 2f;
 
 
         if (inputMove.x != 0 || inputMove.y != 0)
