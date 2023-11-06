@@ -12,11 +12,13 @@ public class ResourceObject : AbstractMapObject
     public int count;
     private Animator animator;
 
+    private FloatingTextManager ftManager;
     public int hp;
 
 
     void Start()
     {
+        ftManager = FindObjectOfType<FloatingTextManager>();
         animator = GetComponent<Animator>();
         tag = "Resource";
     }
@@ -24,6 +26,8 @@ public class ResourceObject : AbstractMapObject
     public bool OnDamage(int damage)
     {
         hp -= damage;
+
+        ftManager.Spawn(transform.position, "-" + damage);
 
         if (hp <= 0)
         {

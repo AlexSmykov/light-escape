@@ -12,6 +12,7 @@ public class PlayerActionController : MonoBehaviour
 
 	private PlayerController player;
 	private PlayerResourcesController playerResources;
+	private FloatingTextManager ftManager;
 
 	private UpgradableTools currentTool = UpgradableTools.Sword;
 
@@ -19,6 +20,7 @@ public class PlayerActionController : MonoBehaviour
     {
 		player = GetComponent<PlayerController>();
 		playerResources = GetComponent<PlayerResourcesController>();
+		ftManager = FindObjectOfType<FloatingTextManager>();
 	}
 
 
@@ -45,11 +47,10 @@ public class PlayerActionController : MonoBehaviour
 				var isDestroyed = resObj.OnDamage(player.GetDamage(currentTool));
 				if (isDestroyed)
 				{
-					playerResources.AddResource(resObj.type, Mathf.RoundToInt( resObj.count * player.loot));
-
-					// Также можно будет навешать всплывающий текст о добытых ресурсах.
+					var reward = Mathf.RoundToInt(resObj.count * player.loot);
+					ftManager.Spawn(transform.position, "Получено: " + reward);
+					playerResources.AddResource(resObj.type, reward);
 				}
-
 			}
 		}
 
