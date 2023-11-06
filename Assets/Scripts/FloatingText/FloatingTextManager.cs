@@ -15,19 +15,11 @@ public class FloatingTextManager : MonoBehaviour
         result.text = text;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         if (instance is null)
         {
             instance = this;
         }
-        Spawn(Vector3.zero, "Hello, world");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

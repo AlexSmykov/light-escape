@@ -10,7 +10,11 @@ namespace Darkness
         [SerializeField] private bool isRunning = true;
         [SerializeField] private Vector2 direction = new(0f, 0f);
         [SerializeField] private List<float> multiplies = new();
-        private Rigidbody2D _rigidbody;
+
+        private void Start()
+        {
+            multiplies.Add(FindObjectOfType<PlayerController>().darknessSpeed);
+        }
 
         /// <summary>
         /// Return 1 if _multiplies is empty
@@ -38,11 +42,6 @@ namespace Darkness
         public void ClearAllMultiple()
         {
             multiplies.Clear();
-        }
-
-        private void Start()
-        {
-            Debug.Log("DARKNESS: START WORKING");
         }
 
         private void FixedUpdate()

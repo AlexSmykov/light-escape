@@ -1,12 +1,17 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(PlayerResourcesController))]
 public class PlayerController : MonoBehaviour
 {
-	public int PlayerDamage = 1;
 	[HideInInspector] public bool isRunning = false;
+
+    public float playerHpStart = 100;
+    public float playerHpCurrent = 100;
+
+    public float playerTerrainSpeed = 1;
 
     public float playerSpeedMove = 1;
     public float swordDamage = 1;
@@ -36,6 +41,20 @@ public class PlayerController : MonoBehaviour
                 return Mathf.RoundToInt(playerResourcesController.pickaxe.effect * axeDamage);
 
                 default: return 0;
+        }
+    }
+
+    private void Update()
+    {
+        playerHpCurrent = Mathf.Min(playerHpStart, playerHpCurrent += 0.001f);
+    }
+
+    public void PlayerDamaged(int damage)
+    {
+        playerHpCurrent -= damage;
+        if (playerHpCurrent < 0)
+        {
+            SceneManager.LoadScene("menu");
         }
     }
 }

@@ -2709,7 +2709,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 5526961863094141635}
   m_Direction: 2
   m_Value: 1.0000063
-  m_Size: 0.75956666
+  m_Size: 0.7595667
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3043,8 +3043,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be9c0192c0b9cde4caba029089dbe080, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerDamage: 1
   isRunning: 0
+  playerHpStart: 100
+  playerHpCurrent: 100
+  playerTerrainSpeed: 1
   playerSpeedMove: 1
   swordDamage: 1
   axeDamage: 1
@@ -4202,7 +4204,7 @@ MonoBehaviour:
     m_Bottom: 11
   m_ChildAlignment: 3
   m_Spacing: 10
-  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 1
