@@ -49,12 +49,13 @@ public class PlayerController : MonoBehaviour
         playerHpCurrent = Mathf.Min(playerHpStart, playerHpCurrent += 0.001f);
     }
 
-    public void PlayerDamaged(int damage)
+    public void PlayerDamaged(float damage)
     {
         playerHpCurrent -= damage;
+        Debug.Log(playerHpCurrent);
         if (playerHpCurrent < 0)
         {
-            SceneManager.LoadScene("menu");
+            SceneManager.LoadScene("MenuScene");
         }
     }
 }
