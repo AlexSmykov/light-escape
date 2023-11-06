@@ -103,8 +103,8 @@ MonoBehaviour:
   NeededUpgradableTool: 1
   NeededTool: 0
   type: 2
-  count: 7
-  hp: 16
+  count: 11
+  hp: 25
 --- !u!61 &2367609119368012702
 BoxCollider2D:
   m_ObjectHideFlags: 0

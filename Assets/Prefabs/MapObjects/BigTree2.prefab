@@ -103,8 +103,8 @@ MonoBehaviour:
   NeededUpgradableTool: 2
   NeededTool: 0
   type: 1
-  count: 5
-  hp: 10
+  count: 6
+  hp: 15
 --- !u!95 &-1430716937367534102
 Animator:
   serializedVersion: 5

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6729161915452112682}
   - component: {fileID: 6650624312286725741}
   m_Layer: 0
-  m_Name: Shovel lvl 3
+  m_Name: Leggings lvl 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: 1
-  level: 3
+  level: 1
   sprite: {fileID: 0}
-  type: 3
+  type: 7
+  image: {fileID: 0}

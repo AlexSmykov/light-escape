@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6729161915452112682}
   - component: {fileID: 6650624312286725741}
   m_Layer: 0
-  m_Name: Shovel lvl 4
+  m_Name: Chestplate lvl 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46faefad52b056743b80aaa4562fe9ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effect: 1
-  level: 4
+  effect: 10
+  level: 5
   sprite: {fileID: 0}
-  type: 3
+  type: 6
+  image: {fileID: 0}

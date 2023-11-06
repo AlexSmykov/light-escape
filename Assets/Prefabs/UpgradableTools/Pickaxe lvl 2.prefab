@@ -48,3 +48,4 @@ MonoBehaviour:
   level: 2
   sprite: {fileID: 0}
   type: 1
+  image: {fileID: 0}
