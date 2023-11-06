@@ -22,7 +22,8 @@ public class PlayerActionController : MonoBehaviour
 	private UpgradableTools currentTool = UpgradableTools.Sword;
 
 	private void Start()
-    {
+	{
+		swordIconImage.color = Color.yellow;
 		player = GetComponent<PlayerController>();
 		playerResources = GetComponent<PlayerResourcesController>();
 		ftManager = FindObjectOfType<FloatingTextManager>();
