@@ -871,7 +871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f228c576b277852459dd0cd0c895eb74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOneTimeCraft: 0
+  isOneTimeCraft: 1
   cost:
   - {fileID: 530695797283105478}
   - {fileID: 7748311283615124384}
