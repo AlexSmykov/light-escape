@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Resource
   - Scripts
+  - Dark
   layers:
   - Default
   - TransparentFX
