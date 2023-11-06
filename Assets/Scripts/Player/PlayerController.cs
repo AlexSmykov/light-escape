@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 [RequireComponent(typeof(Collider2D))]
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public float pickaxeDamage = 1;
     public float loot = 1;
     public float darknessSpeed = 1;
+    public Image hpbar;
 
     private PlayerResourcesController playerResourcesController;
 
@@ -46,7 +48,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        playerHpCurrent = Mathf.Min(playerHpStart, playerHpCurrent += 0.001f);
+        playerHpCurrent = Mathf.Min(playerHpStart, playerHpCurrent += 0.005f);
+        hpbar.fillAmount = playerHpCurrent / playerHpStart;
     }
 
     public void PlayerDamaged(float damage)

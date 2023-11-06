@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(PlayerController))]
 [RequireComponent(typeof(PlayerResourcesController))]
@@ -33,6 +34,10 @@ public class PlayerActionController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
 	{
 		_currentCollisions.Add(col.gameObject);
+		if (col.tag == "Dark")
+        {
+			SceneManager.LoadScene("MenuScene");
+        }
 		checkActiveCollisions();
 	}
 
@@ -49,13 +54,16 @@ public class PlayerActionController : MonoBehaviour
 			var objs = GetResourceObjectList();
 			if (objs.Count > 0)
 			{
-				var resObj = objs[0].GetComponent<ResourceObject>();
-				var isDestroyed = resObj.OnDamage(player.GetDamage(currentTool));
-				if (isDestroyed)
+				foreach (var obj in objs)
 				{
-					var reward = Mathf.RoundToInt(resObj.count * player.loot);
-					ftManager.Spawn(transform.position, "Получено: " + reward);
-					playerResources.AddResource(resObj.type, reward);
+					var resObj = obj.GetComponent<ResourceObject>();
+					var isDestroyed = resObj.OnDamage(player.GetDamage(currentTool));
+					if (isDestroyed && resObj.type != Resources.Enemy)
+					{
+						var reward = Mathf.RoundToInt(resObj.count * player.loot);
+						ftManager.Spawn(transform.position, "Получено: " + reward);
+						playerResources.AddResource(resObj.type, reward);
+					}
 				}
 			}
 		}
@@ -99,7 +107,9 @@ public class PlayerActionController : MonoBehaviour
 
 	List<GameObject> GetResourceObjectList()
 	{
-		return _currentCollisions.Where((item) => { return item.tag == "Resource"; }).ToList();
+		return _currentCollisions.Where((item) => { return item.tag == "Resource" && 
+			(item.GetComponent<ResourceObject>().NeededUpgradableTool == currentTool || 
+			item.GetComponent<ResourceObject>().NeededUpgradableTool == UpgradableTools.None); }).ToList();
 	}
 
 	void checkActiveCollisions()

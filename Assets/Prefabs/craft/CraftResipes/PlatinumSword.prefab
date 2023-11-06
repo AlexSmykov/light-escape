@@ -1416,7 +1416,7 @@ PrefabInstance:
     - target: {fileID: 4945966942126360004, guid: eb7065359bb12da4db95922eaebf0358, type: 3}
       propertyPath: sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4b6ca3b64b7587843b73a082145d44b0, type: 3}
+      objectReference: {fileID: 21300000, guid: 4dc6e7588f8e3b648a360d256dca6b90, type: 3}
     - target: {fileID: 7161601189480903497, guid: eb7065359bb12da4db95922eaebf0358, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
