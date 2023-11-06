@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 1527263689478689304}
   - component: {fileID: 5037021207414750333}
   - component: {fileID: 5209204835520344369}
+  - component: {fileID: 3114779497427697853}
   - component: {fileID: 5390456986973162123}
   - component: {fileID: 3917334688820539302}
   m_Layer: 0
@@ -188,8 +189,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be9c0192c0b9cde4caba029089dbe080, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerDamage: 1
   isRunning: 0
+  playerHpStart: 100
+  playerHpCurrent: 100
+  playerTerrainSpeed: 1
+  playerSpeedMove: 1
+  swordDamage: 1
+  axeDamage: 1
+  pickaxeDamage: 1
+  loot: 1
+  darknessSpeed: 1
 --- !u!50 &4126599794275941508
 Rigidbody2D:
   serializedVersion: 4
@@ -312,6 +321,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4, y: 0.4}
   m_EdgeRadius: 0.3
+--- !u!114 &3114779497427697853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7159918687066457015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df8a4fb7265b6ee409d461eb3d16ece7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 0}
+  grassSpeedMul: 0.8
+  dirtSpeedMul: 0.5
+  waterSpeedMul: 0.3
+  roadSpeedMul: 1
+  swampSpeedMul: 0.3
 --- !u!114 &5390456986973162123
 MonoBehaviour:
   m_ObjectHideFlags: 0
