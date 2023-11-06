@@ -103,7 +103,7 @@ MonoBehaviour:
   NeededUpgradableTool: 2
   NeededTool: 0
   type: 1
-  count: 6
+  count: 4
   hp: 15
 --- !u!95 &-1430716937367534102
 Animator:
