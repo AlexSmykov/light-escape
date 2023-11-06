@@ -22,27 +22,31 @@ public class TileDetector : MonoBehaviour
     void Update()
     {
         float mul = 1.0f;
-        string tileName = tilemap.GetTile(Vector3Int.RoundToInt(transform.position)).name;
-        if (tileName.StartsWith("Dirt"))
+        var tile = tilemap.GetTile(Vector3Int.RoundToInt(transform.position));
+        if (tile != null)
         {
-            mul = dirtSpeedMul;
+            string tileName = tilemap.GetTile(Vector3Int.RoundToInt(transform.position)).name;
+            if (tileName.StartsWith("Dirt"))
+            {
+                mul = dirtSpeedMul;
+            }
+            else if (tileName.StartsWith("Grass"))
+            {
+                mul = grassSpeedMul;
+            }
+            else if (tileName.StartsWith("Road"))
+            {
+                mul = roadSpeedMul;
+            }
+            else if (tileName.StartsWith("Swamp"))
+            {
+                mul = swampSpeedMul;
+            }
+            else if (tileName.StartsWith("Water"))
+            {
+                mul = waterSpeedMul;
+            }
+            GetComponent<PlayerController>().playerTerrainSpeed = mul;
         }
-        else if (tileName.StartsWith("Grass")) 
-        {
-            mul = grassSpeedMul;
-        }
-        else if (tileName.StartsWith("Road"))
-        {
-            mul = roadSpeedMul;
-        }
-        else if (tileName.StartsWith("Swamp"))
-        {
-            mul = swampSpeedMul;
-        }
-        else if (tileName.StartsWith("Water"))
-        {
-            mul = waterSpeedMul;
-        }
-        GetComponent<PlayerController>().playerTerrainSpeed = mul;
     }
 }
