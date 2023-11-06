@@ -8,7 +8,7 @@ public class FloatingTextManager : MonoBehaviour
     public FloatingText prototype;
     public float textLifetime = 10.0f;
 
-    public static void Spawn(Vector3 position, string text)
+    public void Spawn(Vector3 position, string text)
     {
         FloatingText result = Instantiate(instance.prototype, position, Quaternion.identity);
         result.lifetime = instance.textLifetime;
