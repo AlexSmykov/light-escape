@@ -121,7 +121,11 @@ public class PlayerResourcesController : MonoBehaviour
 
         SpendResources(resources);
 
-        Instantiate(amulete, amuletesTransform);
+        var amuleteObj = Instantiate(amulete, Vector2.zero, Quaternion.identity);
+        amuleteObj.transform.SetParent(amuletesTransform);
+        amuleteObj.transform.localScale = new Vector3(1, 1, 1);
+        amuleteObj.gameObject.AddComponent<Image>();
+        amuleteObj.GetComponent<PlayerAmulete>().UpdateSprite(); 
     }
 
     public void AddResource(Resources type, int count)

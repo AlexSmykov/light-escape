@@ -100,9 +100,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objName: "\u0411\u043E\u043B\u044C\u0448\u043E\u0439 \u043A\u0430\u043C\u0435\u043D\u044C"
-  hp: 13
+  NeededUpgradableTool: 1
+  NeededTool: 0
   type: 2
   count: 5
+  hp: 13
 --- !u!61 &8873870703291187690
 BoxCollider2D:
   m_ObjectHideFlags: 0
