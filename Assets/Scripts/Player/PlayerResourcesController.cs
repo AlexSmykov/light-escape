@@ -189,7 +189,7 @@ public class PlayerResourcesController : MonoBehaviour
         ResourceChanged?.Invoke();
     }
 
-    private PlayerResource GetResourceByType(Resources type)
+    public PlayerResource GetResourceByType(Resources type)
     {
         return playerResources.Where(playerResource => { return playerResource.type == type; })
             .ToList()[0];
