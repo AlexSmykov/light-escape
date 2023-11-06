@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 138e2cd0decf1ae45a68737f6fd96c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: c377441976c4c4d45876e146838712c1, type: 3}
+  sprite: {fileID: 21300000, guid: 08e2d41b9c97d1b4788c78188bded53f, type: 3}
   playerSpeedMove: 1
   swordDamage: 1
   axeDamage: 1

@@ -878,7 +878,7 @@ MonoBehaviour:
   - {fileID: 7748311283615124384}
   - {fileID: 3673158720235867485}
   resultTool: {fileID: 0}
-  resultUpgradableTool: {fileID: 6650624312286725741, guid: 4b83846e0a24d134c8aa71d95c29e4f7, type: 3}
+  resultUpgradableTool: {fileID: 6650624312286725741, guid: 9fd6a54c5d676eb4894c124015d95a51, type: 3}
   resultAmulete: {fileID: 0}
   ResultIcon: {fileID: 21300000, guid: 6814b958b5b410b43ad5d430982a273f, type: 3}
   Name: "\u0416\u0435\u043B\u0435\u0437\u043D\u044B\u0439 \u043C\u0435\u0447"
