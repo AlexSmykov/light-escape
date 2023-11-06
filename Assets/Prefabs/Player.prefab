@@ -119,7 +119,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8305825985553152410}
   m_Father: {fileID: 0}
@@ -188,8 +188,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be9c0192c0b9cde4caba029089dbe080, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerDamage: 1
   isRunning: 0
+  playerHpStart: 100
+  playerHpCurrent: 100
+  playerTerrainSpeed: 1
+  playerSpeedMove: 1
+  swordDamage: 1
+  axeDamage: 1
+  pickaxeDamage: 1
+  loot: 1
+  darknessSpeed: 1
 --- !u!50 &4126599794275941508
 Rigidbody2D:
   serializedVersion: 4
@@ -230,7 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashCooldown: 0
-  speed: 10
+  speed: 7
   playerTransform: {fileID: 0}
 --- !u!58 &5037021207414750333
 CircleCollider2D:
